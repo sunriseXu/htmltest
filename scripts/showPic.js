@@ -72,8 +72,39 @@ function preparelinks(){//window.onload is being overwrite, so countBodyChildren
 		}
 	}
 }  
+
+function prepareplaceholder(){
+	
+	var imgnode=document.createElement("img");
+	
+	imgnode.setAttribute("id","placeholder");
+	//alert("initial");
+	imgnode.setAttribute("src","images/placeholder.jpg");
+	imgnode.setAttribute("alt","this is placeholder");
+	var para=document.createElement("p");
+	var text=document.createTextNode("choose an image");
+	para.setAttribute("id","description");
+
+	var placeholderdiv=document.getElementById("placeholderdiv");
+	para.appendChild(text);
+	//alert(text.nodeValue);
+	placeholderdiv.appendChild(imgnode);
+	placeholderdiv.appendChild(para);
+
+
+}
+
+
+
+
+
+
+
 window.onload=function(){
+	
 	preparelinks();
 	preparegallery();
+	prepareplaceholder();
+
 };
 window.onkeypress=window.onclick;
