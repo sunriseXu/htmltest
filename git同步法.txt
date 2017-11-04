@@ -1,6 +1,6 @@
 1.首先设置git的全局用户邮箱和名字：
-	git config --global user.email "15927176697@163.com"
-	git config --global user.name "sunriseXu"
+	git config --global user.email "****@163.com"
+	git config --global user.name "****"
 	
 2.进入需要同步的本地文件夹下：
 	git init //在本地目录下创建.git文件
@@ -9,7 +9,7 @@
 4.提交改动：
 	git commit -m "first commit" //改动名
 5.将改动提交到git网站目录下：
-	git remote add origin https://github.com//sunriseXu/***.git
+	git remote add origin https://github.com//yourname/***.git
 6.将当前分支合并：
 	git push -u origin master
 
