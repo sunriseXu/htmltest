@@ -20,3 +20,7 @@
 	git commit -m "commit name"
 3.提交到git网站目录下：需要输入账号密码
 	git push -u orgin master
+
+
+克隆网站工程到本地目录下
+	git clone url //工程的git链接
