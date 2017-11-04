@@ -12,3 +12,11 @@
 	git remote add origin https://github.com//sunriseXu/***.git
 6.将当前分支合并：
 	git push -u origin master
+
+同步修改：
+1.添加改动：
+	git add .
+2.提交改动：
+	git commit -m "commit name"
+3.提交到git网站目录下：需要输入账号密码
+	git push -u orgin master
