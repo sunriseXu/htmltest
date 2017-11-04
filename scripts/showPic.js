@@ -8,7 +8,8 @@ function showPic(whichpic){
 		var text = whichpic.getAttribute("title")?whichpic.getAttribute("title"):'';
 		//alert(text);
 		var description=document.getElementById("description");
-		if(description.firstChild.nodeValue==3){
+		//alert(description.firstChild.nodeType);
+		if(description.firstChild.nodeType==3){
 			description.childNodes[0].nodeValue=text;
 		}
 	}
