@@ -1,4 +1,8 @@
 function displayAbbreviations(){
+	
+	if(!document.getElementsByTagName ||
+		!document.createElement || 
+		!document.createTextNode) return false;
 
 	var abbreviations=document.getElementsByTagName("abbr");
 	if(abbreviations.length<1) return false;
@@ -6,6 +10,7 @@ function displayAbbreviations(){
 	var defs=[];
 	for(var i =0; i<abbreviations.length; i++){
 		var current_abbr=abbreviations[i];
+		if(current_abbr.childNodes.length < 1) continue;
 		var definition=current_abbr.getAttribute("title");
 		var key = current_abbr.firstChild.nodeValue;
 		defs[key]=definition;
@@ -28,6 +33,7 @@ function displayAbbreviations(){
 		dlist.appendChild(ddesc);
 
 	}
+	if(dlist.childNodes.length<1) return false;
 	var header=document.createElement("h2");
 	var header_text=document.createTextNode("abbreviations");
 	header.appendChild(header_text);
