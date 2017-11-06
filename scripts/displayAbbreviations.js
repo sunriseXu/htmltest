@@ -66,7 +66,34 @@ function displayCitations(){
 		elem.appendChild(superscript);
 	}
 }
+function displayAccesskey(){
+	if(!document.getElementsByTagName) return false;
+	if(!document.createElement) return false;
+	if(!document.createTextNode) return false;
+	var links=document.getElementsByTagName("a");
+	if(links.length<1) return false;
+	var accesskeys=[];
+	for(var i=0; i<links.length; i++){
+		if(!links[i].getAttribute("accesskey")) continue;
+		var key = links[i].getAttribute("accesskey");
+		accesskeys[key]=links[i].firstChild.nodeValue;
 
+	}
+	if(accesskeys.length<1) return false;
+	var ulist=document.createElement("ul");
+	for(key in accesskeys){
+		var listnode=document.createElement("li");
+		var listnode_text=document.createTextNode(key+" "+accesskeys[key]);
+		listnode.appendChild(listnode_text);
+		ulist.appendChild(listnode);
+	}
+	var accesskeytitle=document.createElement("h2");
+	var accesskeytitle_text=document.createTextNode("accesskeys");
+	accesskeytitle.appendChild(accesskeytitle_text);
+	var parent=document.body;
+	parent.appendChild(accesskeytitle);
+	parent.appendChild(ulist);
+}
 
 
 function appendOnload(func){
@@ -80,5 +107,6 @@ function appendOnload(func){
 		}
 	}
 }
+appendOnload(displayAccesskey);
 appendOnload(displayAbbreviations);
 appendOnload(displayCitations);
