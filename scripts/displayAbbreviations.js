@@ -42,6 +42,33 @@ function displayAbbreviations(){
 	parent.appendChild(header);
 	parent.appendChild(dlist);
 }
+
+function displayCitations(){
+	if(!document.getElementsByTagName) return false;
+	if(!document.createElement) return false;
+	if(!document.createTextNode) return false;
+
+	var quotes=document.getElementsByTagName("blockquote");
+	for(var i = 0; i < quotes.length; i++){
+		if(!quotes[i].getAttribute("cite")) continue;
+		var url = quotes[i].getAttribute("cite");
+		var quoteChildren = quotes[i].getElementsByTagName('*');
+		if(quoteChildren.lenth<1) continue;
+		var elem = quoteChildren[quoteChildren.length-1];
+		var link = document.createElement("a");
+		link.setAttribute("href",url);
+		var link_text = document.createTextNode(url);
+		link.appendChild(link_text);
+
+		var superscript=document.createElement("sup");
+		superscript.appendChild(link);
+
+		elem.appendChild(superscript);
+	}
+}
+
+
+
 function appendOnload(func){
 	var oldonload=window.onload;
 	if(oldonload!='function'){
