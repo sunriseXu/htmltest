@@ -57,7 +57,7 @@ function displayCitations(){
 		var elem = quoteChildren[quoteChildren.length-1];
 		var link = document.createElement("a");
 		link.setAttribute("href",url);
-		var link_text = document.createTextNode(url);
+		var link_text = document.createTextNode("source");
 		link.appendChild(link_text);
 
 		var superscript=document.createElement("sup");
@@ -71,7 +71,7 @@ function displayCitations(){
 
 function appendOnload(func){
 	var oldonload=window.onload;
-	if(oldonload!='function'){
+	if(typeof oldonload!='function'){
 		window.onload=func;
 	}else{
 		window.onload=function(){
@@ -81,3 +81,4 @@ function appendOnload(func){
 	}
 }
 appendOnload(displayAbbreviations);
+appendOnload(displayCitations);
